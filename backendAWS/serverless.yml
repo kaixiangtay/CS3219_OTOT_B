@@ -1,0 +1,16 @@
+service: backendAWS
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-southeast-1
+
+functions:
+  app-lambdaBackend:
+    handler: handler.handle
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true
