@@ -7,6 +7,9 @@
     "provider": {
       "name": "aws",
       "runtime": "nodejs12.x",
+      "apiGateway": {
+        "minimumCompressionSize": 1024
+      },
       "stage": "dev",
       "region": "ap-southeast-1",
       "versionFunctions": true,
@@ -173,7 +176,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/backendAWS/dev/1632316006899-2021-09-22T13:06:46.899Z/backendAWS.zip"
+                "S3Key": "serverless/backendAWS/dev/1632318531007-2021-09-22T13:48:51.007Z/backendAWS.zip"
               },
               "Handler": "handler.handle",
               "Runtime": "nodejs12.x",
@@ -191,14 +194,14 @@
               "AppDashlambdaBackendLogGroup"
             ]
           },
-          "AppDashlambdaBackendLambdaVersionGokdyqLU1g9JIgwEixTb37PVrCNccslllQNySTSRoI": {
+          "AppDashlambdaBackendLambdaVersionnGC0SCtaDyEyv6LNHe0K34Ppoy31x3IrTp22aWA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppDashlambdaBackendLambdaFunction"
               },
-              "CodeSha256": "g1MEerY9Ox5IoojiiowdbOat4p4yUmwgTIe5ywfjYWE="
+              "CodeSha256": "6q5y4LrpjIziWZYirQ2o3vE843J1sVVbwk1Sb2AVAvM="
             }
           },
           "ApiGatewayRestApi": {
@@ -210,7 +213,8 @@
                   "EDGE"
                 ]
               },
-              "Policy": ""
+              "Policy": "",
+              "MinimumCompressionSize": 1024
             }
           },
           "ApiGatewayResourceProxyVar": {
@@ -319,7 +323,7 @@
               "AppDashlambdaBackendLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1632315974238": {
+          "ApiGatewayDeployment1632318528007": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -382,7 +386,7 @@
           "AppDashlambdaBackendLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppDashlambdaBackendLambdaVersionGokdyqLU1g9JIgwEixTb37PVrCNccslllQNySTSRoI"
+              "Ref": "AppDashlambdaBackendLambdaVersionnGC0SCtaDyEyv6LNHe0K34Ppoy31x3IrTp22aWA"
             },
             "Export": {
               "Name": "sls-backendAWS-dev-AppDashlambdaBackendLambdaFunctionQualifiedArn"
@@ -535,7 +539,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppDashlambdaBackendLambdaVersionGokdyqLU1g9JIgwEixTb37PVrCNccslllQNySTSRoI"
+        "versionLogicalId": "AppDashlambdaBackendLambdaVersionnGC0SCtaDyEyv6LNHe0K34Ppoy31x3IrTp22aWA"
       }
     },
     "configValidationMode": "warn",
@@ -556,7 +560,7 @@
     "artifact": "/Users/tkx/Desktop/CS3219_OTOT_B/backendAWS/.serverless/backendAWS.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/backendAWS/dev/1632316006899-2021-09-22T13:06:46.899Z",
+    "artifactDirectoryName": "serverless/backendAWS/dev/1632318531007-2021-09-22T13:48:51.007Z",
     "artifact": "backendAWS.zip"
   }
 }

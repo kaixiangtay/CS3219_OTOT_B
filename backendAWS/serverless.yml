@@ -3,6 +3,8 @@ service: backendAWS
 provider:
   name: aws
   runtime: nodejs12.x
+  apiGateway:
+    minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
   stage: dev
   region: ap-southeast-1
 
