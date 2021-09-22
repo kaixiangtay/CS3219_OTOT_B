@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/backendAWS/dev/1632315615864-2021-09-22T13:00:15.864Z/backendAWS.zip"
+          "S3Key": "serverless/backendAWS/dev/1632316006899-2021-09-22T13:06:46.899Z/backendAWS.zip"
         },
         "Handler": "handler.handle",
         "Runtime": "nodejs12.x",
@@ -179,14 +179,14 @@
         "AppDashlambdaBackendLogGroup"
       ]
     },
-    "AppDashlambdaBackendLambdaVersion76ZO6WvOhiX4zlRzQlk4T1Yu3FtPFsrJzZhh5JhueYo": {
+    "AppDashlambdaBackendLambdaVersionGokdyqLU1g9JIgwEixTb37PVrCNccslllQNySTSRoI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppDashlambdaBackendLambdaFunction"
         },
-        "CodeSha256": "gfIuat0OTFJz7IGvOE9w7tP424KPkTOa2+Orkf3+qOg="
+        "CodeSha256": "g1MEerY9Ox5IoojiiowdbOat4p4yUmwgTIe5ywfjYWE="
       }
     },
     "ApiGatewayRestApi": {
@@ -307,7 +307,7 @@
         "AppDashlambdaBackendLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1632315575073": {
+    "ApiGatewayDeployment1632315974238": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -370,7 +370,7 @@
     "AppDashlambdaBackendLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppDashlambdaBackendLambdaVersion76ZO6WvOhiX4zlRzQlk4T1Yu3FtPFsrJzZhh5JhueYo"
+        "Ref": "AppDashlambdaBackendLambdaVersionGokdyqLU1g9JIgwEixTb37PVrCNccslllQNySTSRoI"
       },
       "Export": {
         "Name": "sls-backendAWS-dev-AppDashlambdaBackendLambdaFunctionQualifiedArn"
