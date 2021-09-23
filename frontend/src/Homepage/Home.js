@@ -12,7 +12,7 @@ function Home() {
         var tempFoodList = []
 
         try {
-            fetch('http://localhost:8080/api/food', {
+            fetch('http://localhost:8080/api/food/', {
                 method: 'GET'
             }).then( (response) =>  {
             setConnectionStatus(response.status)
