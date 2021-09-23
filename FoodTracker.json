@@ -1,0 +1,2005 @@
+{
+	"info": {
+		"_postman_id": "2b8004ec-fbcf-449f-895a-3c023234a648",
+		"name": "FoodTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save Food (Local - missing expirydate as required field)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "foodname",
+							"value": "HL Milk",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Food (Local - missing expirydate as required field)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "foodname",
+									"value": "HL Milk",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/food",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "407"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"197-V1+A9ZLmoL/xzo19SWHz9+3UVC0\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 10:56:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": {\n        \"errors\": {\n            \"expirydate\": {\n                \"name\": \"ValidatorError\",\n                \"message\": \"Path `expirydate` is required.\",\n                \"properties\": {\n                    \"message\": \"Path `expirydate` is required.\",\n                    \"type\": \"required\",\n                    \"path\": \"expirydate\"\n                },\n                \"kind\": \"required\",\n                \"path\": \"expirydate\"\n            }\n        },\n        \"_message\": \"foodlists validation failed\",\n        \"name\": \"ValidationError\",\n        \"message\": \"foodlists validation failed: expirydate: Path `expirydate` is required.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Save Food (Deployed - missing foodname as required field)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "expirydate",
+							"value": "2021-10-31",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Food (Deployed - missing foodname as required field)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "expirydate",
+									"value": "2021-10-31",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "393"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 10:55:58 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "8994c43b-30d2-4854-8634-28825169d92f"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "393"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHOBtG4DSQ0FbHg="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"189-0TkbmtwFN3kdOPw7KG0gVlgGcjg\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c5d3d-5e55be9f4eb73b1c518bd9b5;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 10:55:58 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Error from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 4d971e7e85e699a206c89cc98b9464b1.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "KUL50-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "sKn657QA7B91ilJf-mDhrOf8Oy4jkyUwbOB2HFbFxhq1OFmjMfQOjw=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": {\n        \"errors\": {\n            \"foodname\": {\n                \"name\": \"ValidatorError\",\n                \"message\": \"Path `foodname` is required.\",\n                \"properties\": {\n                    \"message\": \"Path `foodname` is required.\",\n                    \"type\": \"required\",\n                    \"path\": \"foodname\"\n                },\n                \"kind\": \"required\",\n                \"path\": \"foodname\"\n            }\n        },\n        \"_message\": \"foodlists validation failed\",\n        \"name\": \"ValidationError\",\n        \"message\": \"foodlists validation failed: foodname: Path `foodname` is required.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Save Food (Local)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "foodname",
+							"value": "HL Milk",
+							"type": "text"
+						},
+						{
+							"key": "expirydate",
+							"value": "2021-10-31",
+							"type": "text"
+						},
+						{
+							"key": "person",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "88888888",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Food (Local)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "foodname",
+									"value": "HL Milk",
+									"type": "text"
+								},
+								{
+									"key": "expirydate",
+									"value": "2021-10-31",
+									"type": "text"
+								},
+								{
+									"key": "person",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "88888888",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/food",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "167"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a7-9kRS5L4fHMh8qdxoEkxVt1Pv6/M\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 10:55:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"New food created!\",\n    \"data\": {\n        \"_id\": \"614c5d1239c4e61c5d3a953c\",\n        \"foodname\": \"HL Milk\",\n        \"expirydate\": \"2021-10-31\",\n        \"person\": \"John Doe\",\n        \"phone\": \"88888888\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Save Food (Deployed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "foodname",
+							"value": "Baked Beans",
+							"type": "text"
+						},
+						{
+							"key": "expirydate",
+							"value": "2021-11-30",
+							"type": "text"
+						},
+						{
+							"key": "person",
+							"value": "Mark Lee",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "99999999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Save Food (Deployed)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "foodname",
+									"value": "Baked Beans",
+									"type": "text"
+								},
+								{
+									"key": "expirydate",
+									"value": "2021-11-30",
+									"type": "text"
+								},
+								{
+									"key": "person",
+									"value": "Mark Lee",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "99999999",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "171"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 10:58:09 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "3553dd7d-1e54-49ee-8206-55305a52c787"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "171"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHOWLFRjyQ0FsVQ="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ab-mJpWYMoUDe45EhGaWv8naGy37N8\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c5dc0-408ac9aa565450a507a89fee;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 10:58:09 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 4d971e7e85e699a206c89cc98b9464b1.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "KUL50-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "9njH0jDrrbNKYOYpD_oM9J6ensi-qd9uiP_GxzQP5tVvBrODs-Uh8g=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"New food created!\",\n    \"data\": {\n        \"_id\": \"614c5dc0b1964ecf3c69d905\",\n        \"foodname\": \"Baked Beans\",\n        \"expirydate\": \"2021-11-30\",\n        \"person\": \"Mark Lee\",\n        \"phone\": \"99999999\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Food (Local)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/food",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Food (Local)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/food",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "198"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c6-p9d2JP37oS+llu2l2EN8CAdrwr8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 10:56:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Food retrieved successfully\",\n    \"data\": [\n        {\n            \"_id\": \"614c5d1239c4e61c5d3a953c\",\n            \"foodname\": \"HL Milk\",\n            \"expirydate\": \"2021-10-31\",\n            \"person\": \"John Doe\",\n            \"phone\": \"88888888\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Food (Deployed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Food (Deployed)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "202"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 10:58:24 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "6594d186-c07c-4f09-a754-25ff837f89f7"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "202"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHOYoFgmyQ0Frow="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ca-B1+irXFVVrPSDi1JIpkd7MIm4wM\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c5dd0-5970e8ba13e2941800c801d0;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 10:58:24 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 4d971e7e85e699a206c89cc98b9464b1.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "KUL50-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "CVMz9DyAxVl87EfCzpF9YvWP_WS2DDajmU8DdzZkO7pioliiV0iWhQ=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"message\": \"Food retrieved successfully\",\n    \"data\": [\n        {\n            \"_id\": \"614c5dc0b1964ecf3c69d905\",\n            \"foodname\": \"Baked Beans\",\n            \"expirydate\": \"2021-11-30\",\n            \"person\": \"Mark Lee\",\n            \"phone\": \"99999999\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Food by ID (Local)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/food/614c5d1239c4e61c5d3a953c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food",
+						"614c5d1239c4e61c5d3a953c"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Food by ID (Local)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/food/614c5d1239c4e61c5d3a953c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food",
+								"614c5d1239c4e61c5d3a953c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"aa-aGPqgT7aR9fWgePgBmkQSuMTVEA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 11:01:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Food details loading\",\n    \"data\": {\n        \"_id\": \"614c5d1239c4e61c5d3a953c\",\n        \"foodname\": \"HL Milk\",\n        \"expirydate\": \"2021-10-31\",\n        \"person\": \"John Doe\",\n        \"phone\": \"88888888\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Food by ID (Deployed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/614c5dc0b1964ecf3c69d905",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food",
+						"614c5dc0b1964ecf3c69d905"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Food by ID (Deployed)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/614c5dc0b1964ecf3c69d905",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food",
+								"614c5dc0b1964ecf3c69d905"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "174"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 11:02:04 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "cfc2bed4-2c6f-4f17-ac6a-cb73c8bc5ce9"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "174"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHO6qH2xyQ0Fu4w="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ae-jI1u2k3J0dQIRiOMcFGLuRvRLuo\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c5eaa-4234cfc94ef1a765460243cf;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 11:02:04 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 4d971e7e85e699a206c89cc98b9464b1.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "KUL50-C1"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "nr6eMCHLWSv4Y3OmJfyIQCmcGi3PhDIkZJg4hj2c73zDCtaYEBrubg=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Food details loading\",\n    \"data\": {\n        \"_id\": \"614c5dc0b1964ecf3c69d905\",\n        \"foodname\": \"Baked Beans\",\n        \"expirydate\": \"2021-11-30\",\n        \"person\": \"Mark Lee\",\n        \"phone\": \"99999999\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Food (Local)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "foodname",
+							"value": "Cereal",
+							"type": "text"
+						},
+						{
+							"key": "expirydate",
+							"value": "2022-01-01",
+							"type": "text"
+						},
+						{
+							"key": "person",
+							"value": "John Doe",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "88888888",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/food/614c5d1239c4e61c5d3a953c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food",
+						"614c5d1239c4e61c5d3a953c"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Food (Local)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "foodname",
+									"value": "Cereal",
+									"type": "text"
+								},
+								{
+									"key": "expirydate",
+									"value": "2022-01-01",
+									"type": "text"
+								},
+								{
+									"key": "person",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "88888888",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/food/614c5d1239c4e61c5d3a953c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food",
+								"614c5d1239c4e61c5d3a953c"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"aa-PXGnkdLCrORdgX1rCKvKlYBfyHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:35:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Food details updated!\",\n    \"data\": {\n        \"_id\": \"614c5d1239c4e61c5d3a953c\",\n        \"foodname\": \"Cereal\",\n        \"expirydate\": \"2022-01-01\",\n        \"person\": \"John Doe\",\n        \"phone\": \"88888888\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Food (Deployed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "foodname",
+							"value": "Kit kat",
+							"type": "text"
+						},
+						{
+							"key": "expirydate",
+							"value": "2021-12-30",
+							"type": "text"
+						},
+						{
+							"key": "person",
+							"value": "Mary Jane",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "99999999",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/614c5dc0b1964ecf3c69d905",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food",
+						"614c5dc0b1964ecf3c69d905"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Food (Deployed)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "foodname",
+									"value": "Kit kat",
+									"type": "text"
+								},
+								{
+									"key": "expirydate",
+									"value": "2021-12-30",
+									"type": "text"
+								},
+								{
+									"key": "person",
+									"value": "Mary Jane",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "99999999",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/614c5dc0b1964ecf3c69d905",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food",
+								"614c5dc0b1964ecf3c69d905"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:40:01 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "17588f6c-a4ee-4241-bc77-3a34166c8ac4"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "172"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHmDVHL7SQ0Fn1w="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"ac-1h+cztcRPSLOMTzAFV/XK54xbtw\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c83ae-0e03911079bdd449667b25f5;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 13:40:01 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 a691085135305af276cea0859fd6b129.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "SIN52-C3"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "qghiCw-Q8et8n6pcoDqhLds4zA435EJPMGiQsoHyejD2fCExc8T_TQ=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Food details updated!\",\n    \"data\": {\n        \"_id\": \"614c5dc0b1964ecf3c69d905\",\n        \"foodname\": \"Kit kat\",\n        \"expirydate\": \"2021-12-30\",\n        \"person\": \"Mary Jane\",\n        \"phone\": \"99999999\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Food (Local - Invalid ID)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "foodname",
+							"value": "Mashed Potatoes",
+							"type": "text"
+						},
+						{
+							"key": "expirydate",
+							"value": "2021-12-01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/food/12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food",
+						"12345"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Food (Local - Invalid ID)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "foodname",
+									"value": "Mashed Potatoes",
+									"type": "text"
+								},
+								{
+									"key": "expirydate",
+									"value": "2021-12-01",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/food/12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food",
+								"12345"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"49-A3PjS2J99K1f/p/LixjkasJ6cWM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:35:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Invalid ID detected, unable to update food\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Food (Local)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/food/614c5dc0b1964ecf3c69d905",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food",
+						"614c5dc0b1964ecf3c69d905"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Food (Local)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/food/614c5dc0b1964ecf3c69d905",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food",
+								"614c5dc0b1964ecf3c69d905"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-fG36qSvICK6pnpNXqTyVK9VYKWU\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:42:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Food successfully deleted\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Food (Deployed)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/614c5dc0b1964ecf3c69d905",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food",
+						"614c5dc0b1964ecf3c69d905"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Food (Deployed)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/614c5dc0b1964ecf3c69d905",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food",
+								"614c5dc0b1964ecf3c69d905"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:42:00 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "43cec386-b5ff-4e75-baaf-f22f3eb7f85a"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "58"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHmWCFoQSQ0Fufw="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"3a-fG36qSvICK6pnpNXqTyVK9VYKWU\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c8426-15dfb4f04272629e20b1605f;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 13:42:00 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Miss from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 a691085135305af276cea0859fd6b129.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "SIN52-C3"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "WSvJOdos14qsEhND0PTKV5_YpkqGJuPB8AmjgG-R3KeEQsMTGxEgfg=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Food successfully deleted\",\n    \"status\": \"success\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Food (Local - Invalid ID)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/food/12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"food",
+						"12345"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Food (Local - Invalid ID)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/food/12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"food",
+								"12345"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "80"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"50-gBOrV6wSeWeY1wPXVex2InQ2gK4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:41:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Unable to delete when data not found in database!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Food (Deployed - Invalid ID)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Expect API call to be 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/12345",
+					"protocol": "https",
+					"host": [
+						"doduzz3kdg",
+						"execute-api",
+						"ap-southeast-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"api",
+						"food",
+						"12345"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Food (Deployed - Invalid ID)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://doduzz3kdg.execute-api.ap-southeast-1.amazonaws.com/dev/api/food/12345",
+							"protocol": "https",
+							"host": [
+								"doduzz3kdg",
+								"execute-api",
+								"ap-southeast-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"api",
+								"food",
+								"12345"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "80"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 23 Sep 2021 13:41:11 GMT"
+						},
+						{
+							"key": "x-amzn-RequestId",
+							"value": "116cf563-a4b5-46a0-b0b7-d949357c20de"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "x-amzn-Remapped-content-length",
+							"value": "80"
+						},
+						{
+							"key": "x-amzn-Remapped-connection",
+							"value": "close"
+						},
+						{
+							"key": "x-amz-apigw-id",
+							"value": "GHmOqEwFSQ0Fn8g="
+						},
+						{
+							"key": "etag",
+							"value": "W/\"50-gBOrV6wSeWeY1wPXVex2InQ2gK4\""
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "X-Amzn-Trace-Id",
+							"value": "Root=1-614c83f7-6b16211738b38a2108b044fa;Sampled=0"
+						},
+						{
+							"key": "x-amzn-Remapped-date",
+							"value": "Thu, 23 Sep 2021 13:41:11 GMT"
+						},
+						{
+							"key": "X-Cache",
+							"value": "Error from cloudfront"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 a691085135305af276cea0859fd6b129.cloudfront.net (CloudFront)"
+						},
+						{
+							"key": "X-Amz-Cf-Pop",
+							"value": "SIN52-C3"
+						},
+						{
+							"key": "X-Amz-Cf-Id",
+							"value": "ghMtBoXnSpHA3A_5eprcCfAFahAkT_Gn3hXJ7OjYdzrV0TOes2aEIA=="
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"message\": \"Unable to delete when data not found in database!\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

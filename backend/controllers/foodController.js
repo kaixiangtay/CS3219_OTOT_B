@@ -48,7 +48,7 @@ exports.view = function (req, res) {
         if (err)
             res.status(404).json({
                 status: "error",
-                message: err,
+                message: "Invalid ID detected, unable to find food",
             });
         else
             res.status(200).json({
@@ -61,7 +61,10 @@ exports.view = function (req, res) {
 exports.update = function (req, res) {
     Food.findById(req.params.food_id, function (err, food) {
         if (err)
-            res.send(err);
+            res.status(404).json({
+                status: "error",
+                message: "Invalid ID detected, unable to update food",
+            });
         food.foodname = req.body.foodname ? req.body.foodname : food.foodname;
         food.expirydate = req.body.expirydate;
         food.person = req.body.person;
