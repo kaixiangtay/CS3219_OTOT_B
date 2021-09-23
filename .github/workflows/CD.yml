@@ -1,0 +1,49 @@
+name: CD
+
+on:
+  push:
+  pull_request:
+    branches:
+      - backendAWS
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        mongodb-version: ['4.0', '4.2', '4.4']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: backendAWS/package-lock.json
+    - name: MongoDB in GitHub Actions
+      uses: supercharge/mongodb-github-action@1.6.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+        mongodb-port: 27017
+
+    - name: Install dependencies
+      working-directory: backendAWS
+      run: npm ci
+      env:
+        CI: true
+
+    - name: Install Serverless
+      working-directory: backendAWS
+      run: npm install -g serverless
+
+    - name: Serverless AWS authentication
+      working-directory: backendAWS
+      run: serverless config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Deploy app to AWS lambda
+      working-directory: backendAWS
+      run: serverless deploy function --function app-lambdaBackend
